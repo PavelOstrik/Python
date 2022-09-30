@@ -3,6 +3,7 @@
 # в одной строке одно число.
 
 import random
+from unittest import result
 
 
 n = int(input('Введите количество элементов списка: '))
@@ -13,17 +14,44 @@ for i in range(0, n):
 
 print(list)
 
-# НЕ победил(, не хочет читать путь к файлу и всё, что я только не пробовал
 
-import pathlib
-from pathlib import Path
+with open('file.txt', 'a') as data:
+    data.write('0\n')
+    data.write('1\n')
+    data.write('2\n')
+    data.write('3\n')
+    data.write('4\n')
+
+path = 'file.txt'
+with open(path, 'r') as data:   
+    str1 = int(data.readline())
+    str2 = int(data.readline())      
+    
+    result = list[str1] * list[str2]
+    print(result)
+
+# 2 способ
+
+num = int(input('Введите количество элементов списка: '))
+myList = []
+
+for _ in range(num):
+    myList.append(random.randint(-num,num))
+
+print(myList)
+
+xy = []
+
+with open('file.txt') as data:
+    xy = data.read().split('\n')
+
+multi = myList[int(xy[0]) * myList[int(xy[1])]]
+
+print(f'Произведение элементов на позициях {xy[0]} и {xy[1]} равно {multi}')
 
 
-with open("test.txt") as file:
-    str1 = file.readline()
-    str2 = file.readline()    
 
-    multipli = list[str1] * list[str2]
 
-    print[multipli]
+
+ 
 
