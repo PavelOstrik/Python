@@ -6,38 +6,58 @@
 # 1113384455229 -> [8,9]
 # 1115566773322 -> []
 
-import random
+# import random
 
 
-n = int(input('Введите количество элементов последовательности цифр: '))
+# n = int(input('Введите количество элементов последовательности цифр: '))
 
-list = []
-for i in range(n):
-    list.append(random.randint(1,9))
+# list = []
+# for i in range(n):
+#     list.append(random.randint(1,9))
 
-print('Исходная последовательность: ')
-print(list)
+# print('Исходная последовательность: ')
+# print(list)
 
-# Через множества
+# # Через циклы
 
-listResult = set(list)
-print('Множество: ')
-print(f'{listResult} не разобрался как решить через множество')
+# newList = []
+# for i in range(len(list)):
+#     found = list[i]
+#     count = 0
+#     for j in range(len(list)):
+#         if found == list[j]:
+#             count += 1
+#     if count == 1:
+#         newList.append(list[i])
 
-# Множество не содержит дубликаты элементов, как удалить из множества элементы
-# повторяющиеся в списке я не разобрался
+# print('Список неповторяющихся элементов исходной последовательности: ')
+# print(newList)
 
-# Через циклы
+#2 способ
 
-newList = []
-for i in range(len(list)):
-    found = list[i]
-    count = 0
-    for j in range(len(list)):
-        if found == list[j]:
-            count += 1
-    if count == 1:
-        newList.append(list[i])
+from random import randint as rI
+ 
+# myList = [rI(0,9) for i in range(20)] # создание рандомного списка в одну строку
+# myList = list(map(str,[rI(0,9) for i in range(20)])) 
+# используем функцию map для перевода элементов в строчный тип данных
+# Чтобы map отработал и остался сохраняем его в список list
+# Теперь нам надо склеить список в одну строку, для этого используем join
+myList = ''.join(list(map(str,[rI(0,9) for i in range(20)])))
+print(myList) # 31016721254203580299
 
-print('Список неповторяющихся элементов исходной последовательности: ')
-print(newList)
+unique = {} # Создаём словарь
+
+for c in myList:
+    if unique.get(c): # если вернется значение ключа if сработало, если None, то не сработало
+        unique[c] = unique.get(c) + 1 # мы берем значение этого ключа и прибавляем 1
+    else: # если у нас этого ключа нет, то мы его создаем
+        unique[c] = 1 #  и он будет равен 1
+
+print(unique) # {'9': 2, '0': 3, '6': 3, '5': 3, '1': 1, '4': 3, '2': 4, '3': 1}
+# в значении будет показывться сколько раз встречается это ключ
+uList = []
+for i in unique.items(): # перебираем ключ и значения
+    if i[1] == 1:  # Если значение равно 1 ('7', 3) ([0],[1])
+        uList.append(i[0]) # То мы в новый лист помещаем ключ
+print(*uList)
+

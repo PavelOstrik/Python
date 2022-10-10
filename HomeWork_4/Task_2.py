@@ -11,7 +11,7 @@ d = 2
 while N > 1:        
     if N % d == 0:
         list.append(d)
-        N /= d
+        N //= d
     else:
         d += 1
 print(list)

@@ -1,9 +1,7 @@
-list1 = [1, 2, 3, 4, 5]
 
-print(list1.pop())  # удаление последнего элемента
-print(list1.pop(2)) # удаление конкретного элемента по индексу
-print(list1)
 
-print(list1.insert(2, 11)) # вставка, на позицию индекс = 2, вставить значение 11
-print(list1.append(11))    # вставка в конец
+users = ['user1', 'user2', 'user3', 'user4', 'user5']
+
+data = list(enumerate(users))
+print(data) # [(0, 'user1'), (1, 'user2'), (2, 'user3'), (3, 'user4'), (4, 'user5')]
 

@@ -55,6 +55,8 @@ print(f'{result}  Встречайте, наш многочлен, тарам п
 with open(r'HomeWork_4\HomeWork_4_Task_4.txt', 'w') as file:
     file.write(result)
 
+    
+
 
 
 
