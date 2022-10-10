@@ -13,9 +13,7 @@ candies = int(input('Введите количество конфет: '))
 limitStroke = 28
 
 winCountCandies = candies % (limitStroke + 1)
-print()
-print(f'Чтобы победить, первым ходом нужно взять {winCountCandies} конфет') 
-print()
+print(f'\nЧтобы победить, первым ходом нужно взять {winCountCandies} конфет\n') 
 
 # Жеребьевка
 first = 0
@@ -36,18 +34,14 @@ if firstMove == first:
                     candies -= firstPlayer
                     print(candies)
                     break
-                else:
-                    print()
-                    print('Вы взяли недопустимое количество конфет за ход')
-                    print('Попробуй ешё раз, возьми от 1 до 28 ')
-                    print()
+                else:                    
+                    print('\nВы взяли недопустимое количество конфет за ход')
+                    print('Попробуй ешё раз, возьми от 1 до 28\n')                    
             except:
                 print('Вы ввели не число, попробуй еще раз')
                   
-        if candies <= 28:
-            print()
-            print('Бот выиграл, так как забрал все конфеты за последний ход')
-            print()
+        if candies <= 28:            
+            print('\nБот выиграл, так как забрал все конфеты за последний ход\n')            
             exit()
         
         botPlayer =  candies % (limitStroke + 1)
@@ -57,9 +51,7 @@ if firstMove == first:
         print(candies)        
                    
         if candies <= 28:
-            print()
-            print('Игрок выиграл, так как забрал все конфеты за последний ход')
-            print()
+            print('\nИгрок выиграл, так как забрал все конфеты за последний ход\n')            
             exit()
             
 else:
@@ -72,9 +64,7 @@ else:
         print(candies)   
 
         if candies <= 28:
-            print()
-            print('Игрок выиграл, так как забрал все конфеты за последний ход')
-            print()
+            print('\nИгрок выиграл, так как забрал все конфеты за последний ход\n')            
             exit()
 
         while True:
@@ -85,15 +75,11 @@ else:
                     print(candies)
                     break
                 else:
-                    print()
-                    print('Вы взяли недопустимое количество конфет за ход')
-                    print('Попробуй ешё раз, возьми от 1 до 28 ')
-                    print()
+                    print('\nВы взяли недопустимое количество конфет за ход')
+                    print('Попробуй ешё раз, возьми от 1 до 28\n')
             except:
                 print('Вы ввели не число, попробуй еще раз')
 
         if candies <= 28:
-            print()
-            print('Бот выиграл, так как забрал все конфеты за последний ход')
-            print()
+            print('\nБот выиграл, так как забрал все конфеты за последний ход\n')            
             exit()
