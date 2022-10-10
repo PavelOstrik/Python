@@ -14,7 +14,9 @@ candies = int(input('Введите количество конфет: '))
 limitStroke = 28
 
 winCountCandies = candies % (limitStroke + 1)
-print(f'Чтобы победить первым ходом нужно взять {winCountCandies} конфет') 
+print()
+print(f'Чтобы победить, первым ходом нужно взять {winCountCandies} конфет') 
+print()
     
 
 # Жеребьевка
@@ -27,54 +29,94 @@ firstMove = random.choice(list)
 # Игра между двумя игроками
 
 if firstMove == first:
-    print('Первый игрок ходит первым')
+    print('Первый игрок ходит первым')    
     while candies > 1:
-        firstPlayer = int(input('Первый игрок берет конфеты: '))
-        if firstPlayer <= limitStroke and firstPlayer > 0:
-            candies -= firstPlayer
-            print(candies)
-        else:
-            print('Вы взяли недопустимое количество конфет за ход')
-            exit()       
+        while True:
+            try:
+                firstPlayer = int(input('Первый игрок берет конфеты: '))
+                if firstPlayer <= limitStroke and firstPlayer > 0:
+                    candies -= firstPlayer
+                    print(candies)
+                    break
+                else:
+                    print()
+                    print('Вы взяли недопустимое количество конфет за ход')
+                    print('Попробуй ешё раз, возьми от 1 до 28 ')
+                    print()
+            except:
+                print('Вы ввели не число, попробуй еще раз')
+                  
         if candies <= 28:
+            print()
             print('Второй игрок выиграл, так как забрал все конфеты за последний ход')
+            print()
             exit()
 
-        secondPlayer = int(input('Второй игрок берет конфеты: '))        
-        if secondPlayer <= limitStroke and secondPlayer > 0:
-            candies -= secondPlayer
-            print(candies)        
-        else:
-            print('Вы взяли недопустимое количество конфет за ход')
-            exit()            
+        while True:
+            try:
+                secondPlayer = int(input('Второй игрок берет конфеты: '))        
+                if secondPlayer <= limitStroke and secondPlayer > 0:
+                    candies -= secondPlayer
+                    print(candies) 
+                    break       
+                else:
+                    print()
+                    print('Вы взяли недопустимое количество конфет за ход')
+                    print('Попробуй ешё раз, возьми от 1 до 28 ')
+                    print()
+            except:
+                print('Вы ввели не число, попробуй еще раз')  
+                        
         if candies <= 28:
+            print()
             print('Первый игрок выиграл, так как забрал все конфеты за последний ход')
+            print()
             exit()
-            
+                
 else:
     print('Второй игрок ходит первым')
     while candies > 1:
-        secondPlayer = int(input('Второй игрок берет конфеты: '))        
-        if secondPlayer <= limitStroke and secondPlayer > 0:
-            candies -= secondPlayer
-            print(candies)        
-        else:
-            print('Вы взяли недопустимое количество конфет за ход')
-            exit()            
+        while True:
+            try:
+                secondPlayer = int(input('Второй игрок берет конфеты: '))        
+                if secondPlayer <= limitStroke and secondPlayer > 0:
+                    candies -= secondPlayer
+                    print(candies) 
+                    break       
+                else:
+                    print()
+                    print('Вы взяли недопустимое количество конфет за ход')
+                    print('Попробуй ешё раз, возьми от 1 до 28 ')
+                    print()
+            except:
+                print('Вы ввели не число, попробуй еще раз')
+                            
         if candies <= 28:
+            print()
             print('Первый игрок выиграл, так как забрал все конфеты за последний ход')
+            print()
             exit()
 
-        firstPlayer = int(input('Первый игрок берет конфеты: '))
-        if firstPlayer <= limitStroke and firstPlayer > 0:
-            candies -= firstPlayer
-            print(candies)
-        else:
-            print('Вы взяли недопустимое количество конфет за ход')
-            exit()       
-        if candies <= 28:
-            print('Второй игрок выиграл, так как забрал все конфеты за последний ход')
-            exit()
+    while True:
+        try:
+            firstPlayer = int(input('Первый игрок берет конфеты: '))
+            if firstPlayer <= limitStroke and firstPlayer > 0:
+                candies -= firstPlayer
+                print(candies)
+                break
+            else:
+                print()
+                print('Вы взяли недопустимое количество конфет за ход')
+                print('Попробуй ешё раз, возьми от 1 до 28 ')
+                print()
+        except:
+            print('Вы ввели не число, попробуй еще раз')
+                        
+    if candies <= 28:
+        print()
+        print('Второй игрок выиграл, так как забрал все конфеты за последний ход')
+        print()
+        exit()
 
 
 
