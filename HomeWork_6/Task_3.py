@@ -10,21 +10,22 @@ import random
 
 n = int(input('Введите количество элементов списка: '))
 
-list = []
+# list = []
+# for i in range(0, n):
+#     list.append(random.randint(1,5))
 
-for i in range(0, n):
-    list.append(random.randint(1,5))
-
-
+# Исполльзуем ListComprehension
+list = [random.randint(1,5) for i in range(0, n)]
 
 print(list)
 
-newList = []
-for i in range(0, int((len(list) + 1) / 2)):
-    multi = list[i] * list[len(list)-i-1]
-    newList.append(multi)
+# newList = []
+# for i in range(0, int((len(list) + 1) / 2)):
+#     multi = list[i] * list[len(list)-i-1]
+#     newList.append(multi)
 
-
+# Используем ListComprehension
+newList = [list[i] * list[len(list)-i-1] for i in range(0, int((len(list) + 1) / 2))]
 
 print('Произведение пар чисел списка, где парой считаем первый и последний элемент: ')
 print(newList)

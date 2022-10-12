@@ -22,7 +22,7 @@ print(myList)
 # for i in range(len(myList)):
 #     myList[i] = str(myList[i])
 
-# Исполльзуем ListComprehension и map
+# Используем ListComprehension и map
 # 1 вариант    
 # myList = [str(i) for i in myList]
 # 2 вариант
@@ -31,4 +31,3 @@ print(myList)
 
 result = ' x '.join(myList)
 print(f'Список простых множителей числа {n} = {result}')
-

@@ -21,3 +21,4 @@ for x in [True, False]:
                 break
 
 if trigger: print('Всегда верно')
+

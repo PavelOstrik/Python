@@ -6,7 +6,6 @@
 from functools import reduce
 import random
 
-
 n = int(input('Введите количество элементов списка: '))
 
 mylist = [random.randint(0, 9) for _ in range(0, n)]
@@ -22,9 +21,7 @@ print(mylist)
    
 # print(f'Сумма элементов списка, стоящих на нечётных позициях = {sum}')
 
-
 mylist = list(filter(lambda i: i[0] % 2, list(enumerate(mylist))))
 print(mylist)
 print(f'Сумма элементов на нечетных позициях = {sum(list(map(lambda x: x[1], mylist)))}')
 print(f'Сумма элементов на нечетных позициях = {reduce(lambda x,y: x[1] + y[1], mylist)}')
-

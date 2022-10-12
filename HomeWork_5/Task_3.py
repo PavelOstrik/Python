@@ -5,7 +5,7 @@
 
 
 from random import randint as rI
-from unittest.mock import patch
+
 
 def Compressed(list: str):
     newList = ''
