@@ -7,7 +7,8 @@ from functools import reduce
 import random
 
 n = int(input('Введите количество элементов списка: '))
-
+    
+# Исполльзуем ListComprehension
 mylist = [random.randint(0, 9) for _ in range(0, n)]
 
 print(mylist)
