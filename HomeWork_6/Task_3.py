@@ -1,31 +1,33 @@
-# Напишите программу, которая найдёт произведение пар чисел списка.
-# Парой считаем первый и последний элемент, второй и предпоследний и т.д.
-# Пример:
-# - [2, 3, 4, 5, 6] => [12, 15, 16];
-# - [2, 3, 5, 6] => [12, 15]
+# Задайте натуральное число N. Напишите программу,
+# которая составит список простых множителей числа N.
 
-from audioop import mul
 import random
 
 
-n = int(input('Введите количество элементов списка: '))
+n = int(input('Введите натуральное число: '))
+N = n
+if N == 1:
+    print(N)
 
-# list = []
-# for i in range(0, n):
-#     list.append(random.randint(1,5))
+myList = []
+d = 2
+while N > 1:        
+    if N % d == 0:
+        myList.append(d)
+        N //= d
+    else:
+        d += 1
+print(myList)
 
-# Исполльзуем ListComprehension
-list = [random.randint(1,5) for i in range(0, n)]
+# for i in range(len(myList)):
+#     myList[i] = str(myList[i])
 
-print(list)
+# Используем ListComprehension и map
+# 1 вариант    
+# myList = [str(i) for i in myList]
+# 2 вариант
+myList = list(map(str,myList))
+print(myList)
 
-# newList = []
-# for i in range(0, int((len(list) + 1) / 2)):
-#     multi = list[i] * list[len(list)-i-1]
-#     newList.append(multi)
-
-# Используем ListComprehension
-newList = [list[i] * list[len(list)-i-1] for i in range(0, int((len(list) + 1) / 2))]
-
-print('Произведение пар чисел списка, где парой считаем первый и последний элемент: ')
-print(newList)
+result = ' x '.join(myList)
+print(f'Список простых множителей числа {n} = {result}')

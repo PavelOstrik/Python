@@ -63,6 +63,7 @@ def parseEquation(equation: str):  # str пишем просто как пояс
 
     for i in range(len(equation)):
         equation[i] = equation[i].replace('+', '').split('x^', )
+        print(equation[i])
         dictEquation[int(equation[i][1])] = int(equation[i][0])
     # Сплитим по x^ и убираем все плюсы
     # Присваиваем в словаре значению ключа коэффициенты из нашего списка
