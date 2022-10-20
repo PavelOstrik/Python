@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Phone_Book_Consolle_by_Stone", "Phone_Book_Consolle_by_Stone.pyproj", "{1DA82631-D9FB-4579-A033-2745ECC72E2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DA82631-D9FB-4579-A033-2745ECC72E2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA82631-D9FB-4579-A033-2745ECC72E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05FF8617-0E17-4FD7-9193-EFFA72F3A93A}
+	EndGlobalSection
+EndGlobal
