@@ -30,25 +30,21 @@ def winCondition():
 def third_move(): 
     index = 0   
     for i in win:
-        if position[i[0]-1] == position[i[1]-1] == "O":
-            if position[i[2]-1] != "X":
+        if position[i[0]-1] == position[i[1]-1] == "O" and position[i[2]-1] != "X":            
                 index = int(position[i[2]-1])
-        elif position[i[1]-1] == position[i[2]-1] == "O":
-            if position[i[0]-1] != "X":
+        elif position[i[1]-1] == position[i[2]-1] == "O" and position[i[0]-1] != "X":
                 index = int(position[i[0]-1])
-        elif position[i[0]-1] == position[i[2]-1] == "O":
-            if position[i[1]-1] != "X":
+        elif position[i[0]-1] == position[i[2]-1] == "O" and position[i[1]-1] != "X":
                 index = int(position[i[1]-1])
-        elif position[i[0]-1] == position[i[1]-1] == "X":
-            if position[i[2]-1] != "O":
+        elif position[i[0]-1] == position[i[1]-1] == "X" and position[i[2]-1] != "O":            
                 index = int(position[i[2]-1])
-        elif position[i[1]-1] == position[i[2]-1] == "X":
-            if position[i[0]-1] != "O":
+        elif position[i[1]-1] == position[i[2]-1] == "X" and position[i[0]-1] != "O":            
                 index = int(position[i[0]-1])
-        elif position[i[0]-1] == position[i[2]-1] == "X":
-            if position[i[1]-1] != "O":
+        elif position[i[0]-1] == position[i[2]-1] == "X" and position[i[1]-1] != "O":
                 index = int(position[i[1]-1])
-        return index
+        else:
+            index = int(random.choice(range(1,10)))
+    return index
 
 
 
@@ -73,14 +69,13 @@ while True:
                 sign = "O"
             moves.append(index)
             position[index-1] = sign
+            printField(position)
             if len(moves) == len(position):
                     print('Игра завершена, результат ничья')
                     exit()
         # Ход бота
         while True:   
-            index = third_move()
-            if index == 0:        
-                index = int(random.choice(range(1,10)))      
+            index = third_move()                
             if index not in moves:                                                
                 print(f"\n\nХод бота: {index}")
                 if sign == "O":
