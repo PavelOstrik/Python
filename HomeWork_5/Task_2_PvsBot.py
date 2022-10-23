@@ -27,7 +27,29 @@ def winCondition():
             printField(position)
             exit()
         
-        
+def third_move(): 
+    index = 0   
+    for i in win:
+        if position[i[0]-1] == position[i[1]-1] == "O":
+            if position[i[2]-1] != "X":
+                index = int(position[i[2]-1])
+        elif position[i[1]-1] == position[i[2]-1] == "O":
+            if position[i[0]-1] != "X":
+                index = int(position[i[0]-1])
+        elif position[i[0]-1] == position[i[2]-1] == "O":
+            if position[i[1]-1] != "X":
+                index = int(position[i[1]-1])
+        elif position[i[0]-1] == position[i[1]-1] == "X":
+            if position[i[2]-1] != "O":
+                index = int(position[i[2]-1])
+        elif position[i[1]-1] == position[i[2]-1] == "X":
+            if position[i[0]-1] != "O":
+                index = int(position[i[0]-1])
+        elif position[i[0]-1] == position[i[2]-1] == "X":
+            if position[i[1]-1] != "O":
+                index = int(position[i[1]-1])
+        return index
+
 
 
 def printField(position):
@@ -51,18 +73,29 @@ while True:
                 sign = "O"
             moves.append(index)
             position[index-1] = sign
-        
-        index = f"\n\nХод бота: {int(random.choice(position))}"
-        if index in moves:
-            print('Эта клетка уже занята')
-        else:
-            if sign == "O":
-                sign = "X"
+            if len(moves) == len(position):
+                    print('Игра завершена, результат ничья')
+                    exit()
+        # Ход бота
+        while True:   
+            index = third_move()
+            if index == 0:        
+                index = int(random.choice(range(1,10)))      
+            if index not in moves:                                                
+                print(f"\n\nХод бота: {index}")
+                if sign == "O":
+                    sign = "X"
+                else:
+                    sign = "O"
+                moves.append(index)
+                position[index-1] = sign
+                winCondition()
+                if len(moves) == len(position):
+                    print('Игра завершена, результат ничья')
+                    exit()
+                break            
             else:
-                sign = "O"
-            moves.append(index)
-            position[index-1] = sign
-            winCondition()            
-        if len(moves) == len(position):
-            print('Игра завершена, результат ничья')
-            exit()
+                continue  
+        # if len(moves) == len(position):
+        #     print('Игра завершена, результат ничья')
+        #     exit()

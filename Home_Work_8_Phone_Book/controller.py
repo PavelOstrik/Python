@@ -27,6 +27,11 @@ def start():
                 try:
                     model.delete_contact(model.get_path())    
                 except:
-                    print('!!!!!Сначала выполните первый пункт меню!!!!!')              
+                    print('!!!!!Сначала выполните первый пункт меню!!!!!')   
+            case '7': 
+                try:
+                    model.found_contact(model.get_path())    
+                except:
+                    print('!!!!!Сначала выполните первый пункт меню!!!!!')                   
             case '0':
                 break

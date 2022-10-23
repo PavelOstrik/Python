@@ -184,6 +184,32 @@ def delete_contact(path:str):
             case '2':                      
                 break    
 
+def found_contact(path:str):
+    with open(path, 'r', encoding='UTF-8') as f:    
+        contacts = [i.strip().split(';') for i in f.readlines()]
+        name_list = [i[1] for i in contacts]        
+        while True:
+            question = '\
+                \n1 - Найти контакт\
+                \n2 - Закончить работу с файлом\
+                \n\
+                \nВведите необходимую команду: \n'
+            print()
+            command = input(question)        
+            match command:            
+                case '1':
+                    while True:             
+                        name_contact = input('Введите имя и фамилию контакта: ')
+                        if name_contact in name_list:
+                            for i in contacts:
+                                if name_contact in i:
+                                    print(('   |   '.join(i)))
+                            break
+                        else:           
+                            print('Контакта с таким именем и фамилией не существует')
+
+                case '2':                      
+                        break    
 
     
         
