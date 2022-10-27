@@ -61,6 +61,7 @@ def create_new_file_with_contacts():
 
 def add_contact(path:str):
     with open(path, 'r+', encoding='UTF-8') as f:    
+        contacts = [i.strip().split(';') for i in f.readlines()]
         id_list = [i[0].strip().split(';') for i in f.readlines()]
         id_list = [i[0] for i in id_list]        
         id = len(id_list)
@@ -185,9 +186,12 @@ def delete_contact(path:str):
                 break    
 
 def found_contact(path:str):
+    global contacts
     with open(path, 'r', encoding='UTF-8') as f:    
-        contacts = [i.strip().split(';') for i in f.readlines()]
-        name_list = [i[1] for i in contacts]        
+        contacts = [i.strip().split(' ; ') for i in f.readlines()]
+        for index, item in enumerate(contacts):
+            contacts[index] = ';'.join(item)
+   
         while True:
             question = '\
                 \n1 - Найти контакт\
@@ -198,16 +202,17 @@ def found_contact(path:str):
             command = input(question)        
             match command:            
                 case '1':
-                    while True:             
-                        name_contact = input('Введите имя и фамилию контакта: ')
-                        if name_contact in name_list:
-                            for i in contacts:
-                                if name_contact in i:
-                                    print(('   |   '.join(i)))
-                            break
-                        else:           
-                            print('Контакта с таким именем и фамилией не существует')
-
+                    while True:           
+                        search = input('Что ищем? ')
+                        found = False
+                        for item in contacts:
+                            if search.lower() in item.lower():
+                                print(item)
+                                found = True
+                                break
+                        if not found: print('Ничего не найдено!')    
+                        break
+                        
                 case '2':                      
                         break    
 
